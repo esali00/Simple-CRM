@@ -1,20 +1,64 @@
-<mat-card>
+<!-- <mat-card>
       <table class="user-table">
         <tr>
             <th>Name</th>
             <th>E-Mail</th>
-            <th>Birthdate</th>
-            <th>City</th>
+            <th>Phone</th>
+            <th>Department</th>
         </tr>
 
         <tr [routerLink]="['/user/' + user.customID]" *ngFor="let user of allUsers">
             <td>{{ user.firstname }} {{ user.lastname }}</td>
             <td>{{ user.email }}</td>
-            <td>{{ user.birthdate }}</td>
-            <td>{{ user.city }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.department }}</td>
         </tr>
       </table>
-</mat-card>
+</mat-card> -->
+
+<h1>Employees</h1>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="full-width">
+      <!-- Position Column -->
+      <ng-container matColumnDef="firstname">
+        <th mat-header-cell *matHeaderCellDef> FirstName </th>
+        <td [routerLink]="['/user/' + element.customID]" mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastname">
+        <th mat-header-cell *matHeaderCellDef> LastName </th>
+        <td [routerLink]="['/user/' + element.customID]" mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> E-Mail </th>
+        <td [routerLink]="['/user/' + element.customID]" mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Phone </th>
+        <td [routerLink]="['/user/' + element.customID]" mat-cell *matCellDef="let element"> {{element.phone}} </td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="department">
+        <th mat-header-cell *matHeaderCellDef> Department </th>
+        <td [routerLink]="['/user/' + element.customID]" mat-cell *matCellDef="let element"> {{element.department}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator #matpaginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+  
 
 <button (click)="openDialog()" class="add-btn" mat-fab color="primary" matTooltip="Add User">
     <mat-icon>add</mat-icon>

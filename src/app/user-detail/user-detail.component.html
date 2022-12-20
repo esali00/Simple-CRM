@@ -18,10 +18,35 @@
 </div>
 
 
-<mat-card class="address mt-32">
-    <mat-card-title>Adress</mat-card-title>
-    <mat-card-content class="address-info">
-        <span>{{ user.street }}</span> <br>
-        <span>{{ user.zipCode }} {{ user.city }}</span>
-    </mat-card-content>
-</mat-card>
+<mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="bold">
+          Address
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <span>{{ user.street }}</span> <br>
+      <span>{{ user.zipCode }} {{ user.city }}</span> <br>
+      <span>Country: {{ user.country }}</span>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="bold">
+          Phone
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <span>{{ user.phone }}</span>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title class="bold">
+          Department
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <span>{{ user.department }}</span>
+    </mat-expansion-panel>
+  
+</mat-accordion>
+

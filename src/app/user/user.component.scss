@@ -1,7 +1,16 @@
 .add-btn {
     position: absolute;
     right: 56px;
-    bottom: 56px;
+    bottom: 16px;
+}
+
+tr {
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    
 }
 
 .user-head-info {
@@ -12,9 +21,8 @@
 
 mat-card {
     position: relative;
+    overflow-x: auto;
 }
-
-
 
 .user-info {
     display: flex;
@@ -38,7 +46,6 @@ mat-card {
             background-color: transparent !important;
         }
 
-
         &:last-child {
             border-bottom: 0;
         }
@@ -50,6 +57,8 @@ mat-card {
 
     td {
         height: 48px;
+        // margin: 5px 0;
+        padding: 0 10px;
     }
 
 }

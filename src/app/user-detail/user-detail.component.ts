@@ -13,6 +13,7 @@ import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.co
 export class UserDetailComponent implements OnInit {
   userID: string;
   user: User = new User()
+  panelOpenState = false
 
   constructor(private route: ActivatedRoute, private AngularFireStore: AngularFirestore, public dialog: MatDialog) { }
 
@@ -48,7 +49,8 @@ export class UserDetailComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogEditUserComponent)
 
     dialogRef.componentInstance.user = new User(this.user.toJSON())
-    dialogRef.componentInstance.user.birthdate = this.formatDate(new Date(this.user.birthdate))
+    dialogRef.componentInstance.userID = this.userID
+    // dialogRef.componentInstance.user.birthdate = this.formatDate(new Date(this.user.birthdate))
   }
 
 }

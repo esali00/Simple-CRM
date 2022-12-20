@@ -21,7 +21,6 @@ export class DialogAddUserComponent implements OnInit {
   }
 
   createUser() {
-    this.user.birthdate = this.Birthdate.getTime()
     console.log("current user is", this.user)
     this.loading = true
 

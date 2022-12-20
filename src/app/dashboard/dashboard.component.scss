@@ -1,0 +1,18 @@
+.date-and-time {
+    height: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.date {
+    height: 32px;
+    font-size: 32px;
+}
+
+.time {
+    height: 64px;
+    font-size: 64px;
+}
