@@ -1,0 +1,55 @@
+.add-btn {
+    position: absolute;
+    right: 56px;
+    bottom: 56px;
+}
+
+.user-head-info {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+mat-card {
+    position: relative;
+}
+
+
+
+.user-info {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    tr {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        &:first-child {
+            cursor: unset;
+            background-color: transparent !important;
+        }
+
+
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+
+    th,td {
+        text-align: center;
+    }
+
+    td {
+        height: 48px;
+    }
+
+}

@@ -1,0 +1,27 @@
+<div class="wrapper">
+    <button [matMenuTriggerFor]="menu" class="edit-btn" mat-icon-button>
+        <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+        <button (click)="editUser()" mat-menu-item>Edit</button>
+    </mat-menu>
+    
+    <mat-card class="user-detail-header">
+        <mat-icon>person_pin</mat-icon>
+    
+        <div class="user-details">
+            <h2>{{ user.firstname }}  {{ user.lastname }}</h2>
+            <span>{{ user.email }}</span>
+        </div>
+    </mat-card>
+</div>
+
+
+<mat-card class="address mt-32">
+    <mat-card-title>Adress</mat-card-title>
+    <mat-card-content class="address-info">
+        <span>{{ user.street }}</span> <br>
+        <span>{{ user.zipCode }} {{ user.city }}</span>
+    </mat-card-content>
+</mat-card>
