@@ -15,7 +15,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 
 export class UserComponent implements OnInit {
-  user = new User()
+  user = new User() // Employees
   allUsers = []
   displayedColumns = ['firstname','lastname', 'email', 'phone', 'department'];
   dataSource: any;

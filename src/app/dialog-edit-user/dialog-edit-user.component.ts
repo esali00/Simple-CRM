@@ -10,8 +10,8 @@ import { User } from 'src/models/user.class';
   styleUrls: ['./dialog-edit-user.component.scss']
 })
 export class DialogEditUserComponent implements OnInit {
-  userID: string;
-  user: User;
+  userID: string; //EmployeeID
+  user: User; // Employee
   loading = false
 
   constructor(private dialogRef: MatDialogRef<DialogEditUserComponent> , private route: ActivatedRoute, private AngularFireStore: AngularFirestore) { }

@@ -16,3 +16,19 @@
     height: 64px;
     font-size: 64px;
 }
+
+.overview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.overview mat-card {
+    width: 20%;
+    height: 150px;
+}
+
+mat-card h1 {
+    display: flex;
+    align-items: center;
+}

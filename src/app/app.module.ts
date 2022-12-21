@@ -19,7 +19,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
@@ -37,6 +38,12 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
+import { CustomersComponent } from './customers/customers.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { SendEmailComponent } from './send-email/send-email.component';
+import { DialogAddCustomerComponent } from './dialog-add-customer/dialog-add-customer.component';
+import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
+import { DialogEditCustomerComponent } from './dialog-edit-customer/dialog-edit-customer.component';
 
 
 @NgModule({
@@ -47,6 +54,12 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
     DialogAddUserComponent,
     UserDetailComponent,
     DialogEditUserComponent,
+    CustomersComponent,
+    TasksComponent,
+    SendEmailComponent,
+    DialogAddCustomerComponent,
+    CustomerDetailComponent,
+    DialogEditCustomerComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +82,8 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
     MatExpansionModule,
     MatTableModule,
     MatPaginatorModule,
+    MatTabsModule,
+    MatRadioModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

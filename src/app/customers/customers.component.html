@@ -1,0 +1,52 @@
+<div class="container">
+
+    <h1 class="title">Customers</h1>
+  
+    <div class="mt-32 mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" class="full-width">
+         
+          <ng-container matColumnDef="firstname">
+            <th mat-header-cell *matHeaderCellDef> First Name </th>
+            <td [routerLink]="['/customers/' + element.customID]" mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="lastname">
+            <th mat-header-cell *matHeaderCellDef> Last Name </th>
+            <td [routerLink]="['/customers/' + element.customID]" mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+          </ng-container>
+      
+          
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> E-Mail </th>
+            <td [routerLink]="['/customers/' + element.customID]" mat-cell *matCellDef="let element"> {{element.email}} </td>
+          </ng-container>
+      
+          
+          <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef> Phone </th>
+            <td [routerLink]="['/customers/' + element.customID]" mat-cell *matCellDef="let element"> {{element.phone}} </td>
+          </ng-container>
+      
+          
+          <ng-container matColumnDef="industry">
+            <th mat-header-cell *matHeaderCellDef> Industry </th>
+            <td [routerLink]="['/customers/' + element.customID]" mat-cell *matCellDef="let element"> {{element.industry}} </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      
+        <mat-paginator #matpaginator [pageSizeOptions]="[5, 10, 20]"
+                       showFirstLastButtons
+                       aria-label="Select page of periodic elements">
+        </mat-paginator>
+      </div>
+      
+    
+    <button (click)="openDialog()" class="add-btn-top-right-corner" mat-fab color="primary" matTooltip="Add Customer">
+        <mat-icon>add</mat-icon>
+    </button>
+        
+  </div>
+  

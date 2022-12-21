@@ -3,12 +3,30 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.container {
+    position: relative;
+}
+
+.title {
+    height: 56px;
+    display: flex;
+    align-items: center;
+}
+
 .bold {
     font-weight: bold;
 }
 
+.white {
+    color: white;
+}
+
 .mr-16 {
     margin-right: 16px;
+}
+
+.ml-16 {
+    margin-left: 16px;
 }
 
 .mbt-16 {
@@ -23,6 +41,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     width: 100%;
 }
 
+.half-width {
+    width: 50%;
+}
+
+.quarter-width {
+    width: 25%;
+}
+
 .align-right {
     display: flex;
     justify-content: flex-end;
@@ -33,3 +59,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     left: 16px;
     bottom: 16px;
 }
+

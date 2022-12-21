@@ -12,7 +12,7 @@ import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.co
 })
 export class UserDetailComponent implements OnInit {
   userID: string;
-  user: User = new User()
+  user: User = new User() // Employees
   panelOpenState = false
 
   constructor(private route: ActivatedRoute, private AngularFireStore: AngularFirestore, public dialog: MatDialog) { }
@@ -32,25 +32,12 @@ export class UserDetailComponent implements OnInit {
     })
   }
 
-  padTo2Digits(num) {
-    return num.toString().padStart(2, '0');
-  }
-  
-  formatDate(date: { getDate: () => any; getMonth: () => number; getFullYear: () => any; }) {
-    return [
-      this.padTo2Digits(date.getDate()),
-      this.padTo2Digits(date.getMonth() + 1),
-      date.getFullYear(),
-    ].join('/');
-  }
-
 
   editUser() {
     const dialogRef = this.dialog.open(DialogEditUserComponent)
 
     dialogRef.componentInstance.user = new User(this.user.toJSON())
     dialogRef.componentInstance.userID = this.userID
-    // dialogRef.componentInstance.user.birthdate = this.formatDate(new Date(this.user.birthdate))
   }
 
 }

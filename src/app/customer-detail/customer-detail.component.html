@@ -4,15 +4,15 @@
     </button>
 
     <mat-menu #menu="matMenu">
-        <button (click)="editUser()" mat-menu-item>Edit</button>
+        <button (click)="openEditCustomer()" mat-menu-item>Edit</button>
     </mat-menu>
     
     <mat-card class="user-detail-header">
         <mat-icon>person_pin</mat-icon>
     
         <div class="user-details">
-            <h2>{{ user.firstname }}  {{ user.lastname }}</h2>
-            <span>{{ user.email }}</span>
+            <h2>{{ customers.firstname }}  {{ customers.lastname }}</h2>
+            <span>{{ customers.email }}</span>
         </div>
     </mat-card>
 </div>
@@ -25,9 +25,9 @@
           Address
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <span>{{ user.street }}</span> <br>
-      <span>{{ user.zipCode }} {{ user.city }}</span> <br>
-      <span>Country: {{ user.country }}</span>
+      <span>{{ customers.street }}</span> <br>
+      <span>{{ customers.zipCode }} {{ customers.city }}</span> <br>
+      <span>Country: {{ customers.country }}</span>
     </mat-expansion-panel>
 
     <mat-expansion-panel>
@@ -36,17 +36,17 @@
           Phone
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <span>{{ user.phone }}</span>
+      <span>{{ customers.phone }}</span>
     </mat-expansion-panel>
 
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title class="bold">
-          Department
+          Industry
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <span>{{ user.department }}</span>
+      <span>{{ customers.industry }}</span>
     </mat-expansion-panel>
-  
+
 </mat-accordion>
 

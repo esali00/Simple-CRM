@@ -11,8 +11,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./dialog-add-user.component.scss']
 })
 export class DialogAddUserComponent implements OnInit {
-  user = new User()
-  Birthdate: Date;
+  user = new User() // Employees
   loading = false
 
   constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>,private firestore: Firestore, private AngularFireStore: AngularFirestore) { }

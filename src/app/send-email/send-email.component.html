@@ -1,0 +1,36 @@
+<div class="container">
+    <h1 class="title">Send Email</h1>
+
+    <button [disabled]="disabledSendButton" class="add-btn-top-right-corner" mat-fab color="primary" matTooltip="Send Email">
+        <mat-icon>send</mat-icon>
+    </button>
+
+    <button (click)="clearEmail()" class="clear-btn-top-right-corner" mat-fab color="primary" matTooltip="Clear Task">
+        <mat-icon>clear</mat-icon>
+    </button>
+
+    <form class="form" (keyup)="enableSendMailButton()">
+        <div class="from">
+            <span>From:</span> 
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Your email address</mat-label>
+                <input #YourEmailAddress matInput>
+            </mat-form-field>
+        </div>
+        
+        <div class="to">
+            <span>To:</span> 
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Contact email address</mat-label>
+                <input #ContactEmailAddress matInput>
+            </mat-form-field>
+        </div>
+
+        <mat-form-field class="mt-32" appearance="fill">
+            <mat-label>Your Email</mat-label>
+            <textarea #EmailText rows="10" matInput></textarea>
+          </mat-form-field>
+    </form>
+
+
+</div>
