@@ -5,17 +5,21 @@
 
 
 <div class="overview">
-    <mat-card>
+    <mat-card routerLink="/employees" >
         <h1><mat-icon class="mr-16">groups</mat-icon>Employees</h1>
+        <p>You currently have {{ employees.length }} employee(s)</p>
     </mat-card>
-    <mat-card>
+    <mat-card routerLink="/customers" >
         <h1><mat-icon class="mr-16">perm_contact_calendar</mat-icon>Customers</h1>
+        <p>You currently have {{ customers.length }} customer(s)</p>
     </mat-card>
-    <mat-card>
+    <mat-card routerLink="/tasks" >
         <h1><mat-icon class="mr-16">tasks</mat-icon>Tasks</h1>
+        <p>You currently have {{ tasks.length }} task(s)</p>
     </mat-card>
-    <mat-card>
+    <mat-card routerLink="/send_email" >
         <h1><mat-icon class="mr-16">email</mat-icon>Send Email</h1>
+        <p>Send an email to everyone!</p>
     </mat-card>
 </div>
 

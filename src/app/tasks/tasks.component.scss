@@ -1,3 +1,23 @@
+.task-created {
+    color: #3F51B5;
+    font-size: 32px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.High {
+    color: red;
+}
+
+.Medium {
+    color: orange;
+}
+
+.Low {
+    color: lightgreen;
+}
+
 .add-btn-top-right-corner {
     position: absolute;
     right: 0;
@@ -19,3 +39,13 @@ mat-radio-button {
     font-size: 18px;
 }
   
+.task {
+    position: relative;
+}
+
+.edit-btn {
+    z-index: 2;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}

@@ -10,6 +10,7 @@ import { map, share, Subscription, timer } from 'rxjs';
 export class DashboardComponent implements OnInit {
   employees = []
   customers = []
+  tasks = []
   date = new Date().toLocaleDateString();
   rxTime = new Date();
   intervalId;
@@ -29,9 +30,16 @@ export class DashboardComponent implements OnInit {
     })
   }
 
+  getAmountOfTasks() {
+    this.AngularFireStore.collection("tasks").valueChanges().subscribe(changes => {
+      this.tasks = changes
+    })
+  }
+
   ngOnInit() {
     this.getAmountOfEmployees()
     this.getAmountOfCustomers()
+    this.getAmountOfTasks()
 
     // Using RxJS Timer
     this.subscription = timer(0, 1000)

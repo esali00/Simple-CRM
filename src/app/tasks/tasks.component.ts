@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Task } from 'src/models/task.class';
 
 @Component({
@@ -8,26 +9,42 @@ import { Task } from 'src/models/task.class';
 })
 export class TasksComponent implements OnInit {
   task = new Task()
+  allTasks: any[] = [];
+  RadioValue: string;
 
-  RadioValue: string = "";
   disabledButton = true;
   @ViewChild("title") title: ElementRef;
   @ViewChild("description") description: ElementRef;
+  @ViewChild("radiovalue") radiovalue: ElementRef;
 
 
-  constructor() { }
+  constructor(private AngularFireStore: AngularFirestore) {   }
 
   ngOnInit(): void {
-
+    this.AngularFireStore.collection("tasks").valueChanges().subscribe(tasks => {
+      this.allTasks = tasks
+    })
   }
+
 
   createTask() {
-    
+    this.AngularFireStore.collection("tasks").add(this.task.toJSON())
+    this.clearTaskForm()
+    this.showHint()
   }
 
+  showHint() {
+    document.querySelector<HTMLDivElement>(".task-created").classList.remove("d-none")
+
+    setTimeout(() => {
+      document.querySelector<HTMLDivElement>(".task-created").classList.add("d-none")
+    }, 2500)
+  }
+
+  
+  @HostListener("keydown")
   enableCreateButton() {
-    if (this.title.nativeElement.value != "" && this.description.nativeElement.value != "" && this.RadioValue != "") {
-      console.log(this.RadioValue)
+    if (this.task.title != "" && this.task.description != "" && this.task.priority != "") {
       this.disabledButton = false
     } else {
       this.disabledButton = true
@@ -35,9 +52,10 @@ export class TasksComponent implements OnInit {
   }
 
   clearTaskForm() {
-    this.title.nativeElement.value = ""
-    this.description.nativeElement.value = ""
-    this.RadioValue = ""
+    this.task.title = ""
+    this.task.description = ""
+    this.task.priority = ""
+    this.enableCreateButton()
   }
 
 

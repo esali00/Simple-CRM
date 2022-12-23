@@ -24,11 +24,21 @@
 }
 
 .overview mat-card {
+    cursor: pointer;
     width: 20%;
     height: 150px;
 }
 
+.overview mat-card:hover {
+    transform: scale(1.05);
+}
+
 mat-card h1 {
+    margin-top: 10px;
     display: flex;
     align-items: center;
+}
+
+mat-card p {
+    color: lightgray;
 }

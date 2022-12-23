@@ -1,9 +1,15 @@
+<div class="container">
+
+<div class="task-created d-none">
+    Task Created!
+</div>
+
 <mat-tab-group>
     <mat-tab label="Create Task">
         <div class="container mbt-16">
             <h1 class="title">Create Task</h1>
         
-            <button [disabled]="disabledButton" class="add-btn-top-right-corner" mat-fab color="primary" matTooltip="Create Task">
+            <button (click)="createTask()" [disabled]="disabledButton" class="add-btn-top-right-corner" mat-fab color="primary" matTooltip="Create Task">
                 <mat-icon>add</mat-icon>
             </button>
 
@@ -11,23 +17,22 @@
                 <mat-icon>clear</mat-icon>
             </button>
 
-            <form class="form" (keyup)="enableCreateButton()">
+            <form class="form">
                 <div>
-                    <!-- <span>Title:</span>  -->
                     <mat-form-field class="full-width" appearance="fill">
                         <mat-label>Title</mat-label>
-                        <input name="title" [(ngModel)]="task.title" #title matInput>
+                        <input name="title" [(ngModel)]="task.title" #title matInput required>
                     </mat-form-field>
                 </div>
                 
                 <mat-form-field class="full-width mbt-16" appearance="fill">
                     <mat-label>Description</mat-label>
-                    <textarea name="description" [(ngModel)]="task.description" #description rows="8" matInput></textarea>
+                    <textarea name="description" [(ngModel)]="task.description" #description rows="8" matInput required></textarea>
                 </mat-form-field>
 
                 <div>
                     <h2 class="priority-label">Priority:</h2>
-                    <mat-radio-group (change)="enableCreateButton()" [(ngModel)]="RadioValue" [ngModelOptions]="{standalone: true}" aria-label="Select an option">
+                    <mat-radio-group (change)="enableCreateButton()" #radiovalue [(ngModel)]="task.priority" [ngModelOptions]="{standalone: true}">
                         <mat-radio-button value="Low">Low</mat-radio-button>
                         <mat-radio-button value="Medium">Medium</mat-radio-button>
                         <mat-radio-button value="High">High</mat-radio-button>
@@ -37,8 +42,20 @@
         </div>
     </mat-tab>
     <mat-tab label="View Task(s)">
-         Content 2 
+         <mat-card *ngFor="let task of allTasks" class="task mbt-16">
+            <button [matMenuTriggerFor]="menu" class="edit-btn" mat-icon-button>
+                <mat-icon>more_vert</mat-icon>
+            </button>
+        
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>Edit</button>
+            </mat-menu>
+
+            <h1>{{ task.title }}</h1>
+            <p>{{ task.description }}</p>
+            <p class="align-right"><span class="bold">Priority:</span><span class="ml-16" [ngClass]="task.priority" > {{ task.priority }} </span></p>
+         </mat-card>
     </mat-tab>
 </mat-tab-group>
 
-
+</div>

@@ -28,6 +28,7 @@ import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.compon
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatBadgeModule } from '@angular/material/badge';
 
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -84,6 +85,7 @@ import { DialogEditCustomerComponent } from './dialog-edit-customer/dialog-edit-
     MatPaginatorModule,
     MatTabsModule,
     MatRadioModule,
+    MatBadgeModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

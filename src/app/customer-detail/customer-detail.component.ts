@@ -13,7 +13,7 @@ import { DialogEditCustomerComponent } from '../dialog-edit-customer/dialog-edit
 export class CustomerDetailComponent implements OnInit {
   customers = new Customer()
   allCustomers = []
-  customerID: string;
+  customerID: string = "";
 
   constructor(private route: ActivatedRoute ,private dialog: MatDialog , private AngularFireStore: AngularFirestore) { }
 
@@ -26,7 +26,7 @@ export class CustomerDetailComponent implements OnInit {
 }
 
   getCustomer() {
-    this.AngularFireStore.collection("customers").doc(this.customerID).valueChanges().subscribe(customer => {
+    this.AngularFireStore.collection("customers").doc(this.customerID).valueChanges().subscribe((customer: string) => {
       this.customers = new Customer(customer)
       console.log(this.customers)
     })

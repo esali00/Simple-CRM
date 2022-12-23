@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/models/user.class';
-import { Firestore, collectionData, collection } from '@angular/fire/firestore';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -14,7 +12,7 @@ export class DialogAddUserComponent implements OnInit {
   user = new User() // Employees
   loading = false
 
-  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>,private firestore: Firestore, private AngularFireStore: AngularFirestore) { }
+  constructor(private dialogRef: MatDialogRef<DialogAddUserComponent>, private AngularFireStore: AngularFirestore) { }
 
   ngOnInit(): void {
   }

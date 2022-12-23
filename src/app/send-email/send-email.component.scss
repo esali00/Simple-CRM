@@ -10,7 +10,6 @@
     top: 0;
 }
 
-
 .form {
     width: 100%;
     display: flex;
@@ -25,3 +24,8 @@
     width: 100%;
 }
 
+.load-spinner-email {
+    position: absolute;
+    left: 150px;
+    top: 10px;
+}
